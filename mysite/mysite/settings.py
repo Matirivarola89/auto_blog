@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-^=6-_k)oh!n9-fpcd1qd0rf(!8y2!!8cc*so1if(!*ydv@*_dc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['matirivarola89.pythonanywhere.com']
 
 
 # Application definition
@@ -120,9 +120,9 @@ USE_I18N = True
 USE_TZ = True
 
 # Redirección después del login/logout
-LOGIN_REDIRECT_URL = '/' # Redirige a la página principal después de iniciar sesión
-LOGOUT_REDIRECT_URL = '/' # Redirige a la página principal después de cerrar sesión
-LOGIN_URL = '/accounts/login/' # URL para el login si se requiere autenticación
+LOGIN_REDIRECT_URL = '/'  # Redirige a la página principal después de iniciar sesión
+LOGOUT_REDIRECT_URL = '/'  # Redirige a la página principal después de cerrar sesión
+LOGIN_URL = '/accounts/login/'  # URL para el login si se requiere autenticación
 
 
 # Configuración para archivos de medios (imágenes, etc.)
@@ -134,6 +134,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

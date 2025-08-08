@@ -55,7 +55,7 @@
                         <ul class="list-unstyled mb-0">
                             {% for categoria in categorias %}
                                 <li>
-                                    <a href="{% url 'blog:home' %}?categoria={{ categoria.nombre }}">{{ categoria.nombre }}</a>
+                                    <a href="{% url 'blog:home' %}?categoria={{ categoria.nombre }}">{{ categoria.nombre }} </a>
                                 </li>
                             {% endfor %}
                             <li><a href="{% url 'blog:home' %}">Todas</a></li>

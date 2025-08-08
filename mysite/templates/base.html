@@ -1,5 +1,9 @@
+{% load static %}
+
+
 <!DOCTYPE html>
-<html lang="es">
+
+<html lang="es" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,22 +12,37 @@
     <style>
         body { padding-top: 56px; } /* Ajuste para el navbar fijo */
         .footer { background-color: #f8f9fa; padding: 20px 0; text-align: center; }
-        .navbar-custom { background-color: #0000ffff !important ; }
+        .navbar-custom { background-color: #333442 !important ; }
         .navbar-dark .navbar-nav .nav-link { color: white;}
+        .navbar img {
+                    max-height: 40px; /* Ajusta según el tamaño deseado */
+                    width: auto;
+                }
+        .footer {
+                background-color: #212529; /* Fondo oscuro */
+                color: #f8f9fa;            /* Texto claro */
+                padding: 20px 0;
+                text-align: center;
+                }
+        a {
+            text-decoration: none;
+        
+        }
+       
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'blog:home' %}">Motor al Límite</a>
+            <a class="navbar-brand" href="{% url 'blog:home' %}">
+                <img src="{% static 'media/Logo.png' %}" alt="Motor sin límites">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'blog:home' %}">Inicio</a>
-                    </li>
+                    
                     {% if user.is_superuser or user.is_staff %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'blog:post_create' %}">Nuevo Post</a>
@@ -38,7 +57,7 @@
                         <li class="nav-item">
                             <form action="{% url "logout" %}" method="post" style="display: inline;">
                                 {% csrf_token %}
-                                <button type="submit" class"nav-link" style="background: none; border: none; padding: .5rem 1rem; color: rgba(255,255,255,.55);">Cerrar Sesión</button>
+                                <button type="submit" class="nav-link" style="background: none; border: none; padding: .5rem 1rem; color: rgba(255,255,255,.55);">Cerrar Sesión</button>
                             </form>
                         </li>
                     {% else %}
@@ -69,7 +88,7 @@
 
     <footer class="footer mt-5">
         <div class="container">
-            <p>&copy; 2025 Blog de Autos. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Motor sin Límites. Todos los derechos reservados.</p>
         </div>
     </footer>
 
