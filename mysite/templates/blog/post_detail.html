@@ -4,6 +4,17 @@
 {% block title %}{{ post.titulo }}{% endblock %}
 
 {% block content %}
+<style>
+  
+  
+  .card-header {
+    background-color: #4d82bc;
+    color: #ffffff;
+  }
+
+
+  
+</style>
 <div class="row">
     <div class="col-lg-8">
         <article>
@@ -31,7 +42,7 @@
         </article>
 
         <section class="mb-5">
-            <div class="card bg-dark">
+            <div class="card bg-light">
                 <div class="card-body">
                     {% if user.is_authenticated %}
                     <h5 class="card-title">Deja un comentario:</h5>
@@ -71,7 +82,7 @@
                             {% for categoria in categorias %}
                                 <li><a href="{% url 'blog:home' %}?categoria={{ categoria.nombre }}">{{ categoria.nombre }}</a></li>
                             {% endfor %}
-                            <li><a href="{% url 'blog:home' %}">Todas</a></li>
+                            <li><a href="{% url 'blog:home' %}" class="text-dark">Todas</a></li>
                         </ul>
                     </div>
                 </div>
