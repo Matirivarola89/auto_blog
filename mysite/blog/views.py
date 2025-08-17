@@ -13,7 +13,7 @@ import datetime  # Para filtrar por fecha
 
 class PostListView(ListView):
     model = Post
-    template_name = 'blog/home.html'  # <app>/<model>_<viewtype>.html
+    template_name = 'blog/home.html'
     context_object_name = 'posts'
     paginate_by = 5
 

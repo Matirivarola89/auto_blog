@@ -4,7 +4,7 @@ from django.urls import path
 from . import views
 from django.conf.urls.static import static
 
-app_name = 'blog'  # Espacio de nombres para las URLs
+app_name = 'blog'
 
 urlpatterns = [
     path('', views.PostListView.as_view(), name='home'),

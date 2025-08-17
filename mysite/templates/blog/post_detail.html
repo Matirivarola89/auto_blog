@@ -12,6 +12,16 @@
     color: #ffffff;
   }
 
+  .btn-custom {
+        background-color: #4d82bc;
+        color: #ffffff;
+        border: none;
+    }
+
+    .btn-custom:hover {
+        background-color: #9ab4ff;
+        color: #ffffff;
+    }
 
   
 </style>
@@ -49,7 +59,7 @@
                     <form class="mb-4" action="{% url 'blog:add_comment_to_post' pk=post.pk %}" method="post">
                         {% csrf_token %}
                         {{ comment_form.contenido|as_crispy_field }}
-                        <button class="btn btn-primary mt-2" type="submit">Enviar</button>
+                        <button class="btn btn-custom mt-2" type="submit">Enviar</button>
                     </form>
                     {% else %}
                     <p class="text-center">Debes <a href="{% url 'login' %}">iniciar sesión</a> para comentar.</p>
@@ -71,23 +81,6 @@
             </div>
         </section>
     </div>
-    <div class="col-lg-4">
-        
-        <div class="card mb-4">
-            <div class="card-header">Categorías</div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <ul class="list-unstyled mb-0">
-                            {% for categoria in categorias %}
-                                <li><a href="{% url 'blog:home' %}?categoria={{ categoria.nombre }}">{{ categoria.nombre }}</a></li>
-                            {% endfor %}
-                            <li><a href="{% url 'blog:home' %}" class="text-dark">Todas</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+   
 </div>
 {% endblock %}
